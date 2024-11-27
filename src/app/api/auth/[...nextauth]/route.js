@@ -6,15 +6,15 @@ import AppleProvider from "next-auth/providers/apple";
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   cookies: {
-    // csrfToken: {
-    //   name: "next-auth.csrf-token",
-    //   options: {
-    //     httpOnly: true,
-    //     sameSite: "none",
-    //     path: "/",
-    //     secure: true,
-    //   },
-    // },
+    csrfToken: {
+      name: "next-auth.csrf-token",
+      options: {
+        httpOnly: true,
+        sameSite: "none",
+        path: "/",
+        secure: true,
+      },
+    },
     pkceCodeVerifier: {
       name: "next-auth.pkce.code_verifier",
       options: {
