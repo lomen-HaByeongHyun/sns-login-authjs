@@ -7,35 +7,35 @@ import AppleProvider from "next-auth/providers/apple";
 
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
-  cookies: {
-    csrfToken: {
-      name: "next-auth.csrf-token",
-      options: {
-        httpOnly: true,
-        sameSite: "none",
-        path: "/",
-        secure: true,
-      },
-    },
-    pkceCodeVerifier: {
-      name: "next-auth.pkce.code_verifier",
-      options: {
-        httpOnly: true,
-        sameSite: "none",
-        path: "/",
-        secure: true,
-      },
-    },
-  },
-  callbackUrl: {
-    name: `__Secure-next-auth.callback-url`,
-    options: {
-      httpOnly: false,
-      sameSite: "none",
-      path: "/",
-      secure: true,
-    },
-  },
+  // cookies: {
+  //   csrfToken: {
+  //     name: "next-auth.csrf-token",
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "none",
+  //       path: "/",
+  //       secure: true,
+  //     },
+  //   },
+  //   pkceCodeVerifier: {
+  //     name: "next-auth.pkce.code_verifier",
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "none",
+  //       path: "/",
+  //       secure: true,
+  //     },
+  //   },
+  // },
+  // callbackUrl: {
+  //   name: `__Secure-next-auth.callback-url`,
+  //   options: {
+  //     httpOnly: false,
+  //     sameSite: "none",
+  //     path: "/",
+  //     secure: true,
+  //   },
+  // },
   providers: [
     AppleProvider({
       clientId: process.env.AUTH_APPLE_ID,
