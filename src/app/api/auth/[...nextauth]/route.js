@@ -27,10 +27,26 @@ const handler = NextAuth({
       },
     },
   },
+  callbackUrl: {
+    name: `__Secure-next-auth.callback-url`,
+    options: {
+      httpOnly: false,
+      sameSite: "none",
+      path: "/",
+      secure: true,
+    },
+  },
   providers: [
     AppleProvider({
       clientId: process.env.AUTH_APPLE_ID,
       clientSecret: process.env.AUTH_APPLE_SECRET,
+      profile(profile) {
+        return {
+          id: profile.sub,
+          email: profile.email,
+          from: "apple",
+        };
+      },
     }),
     KakaoProvider({
       clientId: process.env.AUTH_KAKAO_ID,
