@@ -2,8 +2,6 @@ import NextAuth from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
 import NaverProvider from "next-auth/providers/naver";
 import AppleProvider from "next-auth/providers/apple";
-// import { createPrivateKey } from "crypto";
-// import { SignJWT } from "jose";
 
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
@@ -34,13 +32,6 @@ const handler = NextAuth({
       sameSite: "none",
       path: "/",
       secure: true,
-    },
-  },
-  authorization: {
-    params: {
-      scope: "name email",
-      response_mode: "form_post",
-      response_type: "code",
     },
   },
   providers: [
